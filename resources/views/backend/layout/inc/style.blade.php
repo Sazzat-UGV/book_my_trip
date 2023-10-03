@@ -7,4 +7,6 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset('assets/backend') }}/css/sb-admin-2.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 @stack('admin_style')
