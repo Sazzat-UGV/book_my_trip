@@ -18,9 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'role_id',
         'name',
         'email',
+        'phone',
+        'address',
+        'image',
         'password',
+        'is_active',
     ];
 
     /**
@@ -42,4 +47,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+
+    /*relationship with role*/
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /*relationship with permissions*/
+    //return either true or false
+    public function haspermission($permission_slug)
+    {
+        return $this->role->permissions()->where('permission_slug', $permission_slug)->first() ? true : false;
+    }
 }
