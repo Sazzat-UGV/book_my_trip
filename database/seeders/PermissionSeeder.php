@@ -18,14 +18,29 @@ class PermissionSeeder extends Seeder
         $adminDashboardPermissionArray = [
             'Access Dashboard',
         ];
+        $adminSystemRolePermissionArray = [
+            'Role List',
+            'Role Create',
+            'Role Edit',
+            'Role Delete',
+        ];
 
         //Access Dashboard
-        $adminDashboardModule = Module::where('module_name', 'Admin Dashboard')->select('id')->first();
+        $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
         for ($i = 0; $i < count($adminDashboardPermissionArray); $i++) {
-            Permission::updateOrCreate([
+            Permission::Create([
                 'module_id' => $adminDashboardModule->id,
                 'permission_name' => $adminDashboardPermissionArray[$i],
                 'permission_slug' => Str::slug($adminDashboardPermissionArray[$i]),
+            ]);
+        }
+        //system roles
+        $adminSystemRoleModule = Module::where('module_name', 'System Roles')->select('id')->first();
+        for ($i = 0; $i < count($adminSystemRolePermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminSystemRoleModule->id,
+                'permission_name' => $adminSystemRolePermissionArray[$i],
+                'permission_slug' => Str::slug($adminSystemRolePermissionArray[$i]),
             ]);
         }
     }

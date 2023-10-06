@@ -50,16 +50,16 @@ class User extends Authenticatable
 
 
 
-    /*relationship with role*/
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
+        /*relationship with role*/
+        public function role(){
+            return $this->belongsTo(Role::class);
+        }
 
-    /*relationship with permissions*/
-    //return either true or false
-    public function haspermission($permission_slug)
-    {
-        return $this->role->permissions()->where('permission_slug', $permission_slug)->first() ? true : false;
-    }
+
+        /*relationship with permissions*/
+        //return either true or false
+        public function haspermission($permission_slug)
+        {
+            return $this->role->permissions()->where('permission_slug',$permission_slug)->first() ? true : false;
+        }
 }

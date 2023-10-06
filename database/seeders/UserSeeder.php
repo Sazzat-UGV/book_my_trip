@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         //create Admin
         $adminRoleId = Role::where('role_slug', 'admin')->first()->id;
-        User::updateOrCreate([
+        User::Create([
             'role_id' => $adminRoleId,
             'name' => 'Sumaiya Rahman Sonchi',
             'email' => 'admin@gmail.com',
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
         //create Manager
         $managerRoleId = Role::where('role_slug', 'manager')->first()->id;
-        User::updateOrCreate([
+        User::Create([
             'role_id' => $managerRoleId,
             'name' => 'System Manager',
             'email' => 'manager@gmail.com',

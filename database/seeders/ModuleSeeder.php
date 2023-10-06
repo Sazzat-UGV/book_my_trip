@@ -15,10 +15,11 @@ class ModuleSeeder extends Seeder
     public function run(): void
     {
         $module_array = [
-            'Admin Dashboard',
+            'Dashboard',
+            'System Roles'
         ];
         foreach ($module_array as $module) {
-            Module::updateOrCreate([
+            Module::Create([
                 'module_name' => $module,
                 'module_slug' => Str::slug($module),
             ]);
