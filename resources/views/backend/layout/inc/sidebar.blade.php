@@ -53,5 +53,20 @@
         </li>
     @endif
 
+    <hr class="sidebar-divider">
+
+    @if (Auth::user()->haspermission('backup-list'))
+        <div class="sidebar-heading">
+            Settings
+        </div>
+        @can('backup-list')
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('backup.index') }}">
+                    <i class="fas fa-fw fa-database"></i>
+                    <span>Database Backup</span></a>
+            </li>
+        @endcan
+    @endif
+
 
 </ul>

@@ -53,7 +53,7 @@
                                                     @if ($role->is_deleteable && Auth::user()->haspermission('role-edit'))
                                                         <div class="">
                                                             <a href="{{ route('role.edit', $role->id) }}"
-                                                                class="btn btn-primary mr-1">
+                                                                class="btn btn-sm btn-outline-primary mr-1">
                                                                 <i class="fas fa-pen"></i>
                                                             </a>
                                                         </div>
@@ -65,7 +65,7 @@
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class=" btn btn-danger show_confirm">
+                                                            <button type="submit" class=" btn btn-sm  btn-outline-danger show_confirm">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
                                                         </form>

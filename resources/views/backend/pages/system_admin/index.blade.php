@@ -62,13 +62,13 @@
                                                     <div class="actions d-flex justify-content-start">
                                                         @if ($admin->is_deleteable && Auth::user()->haspermission('admin-edit'))
                                                             <a href="{{ route('admin.edit', $admin->id) }}"
-                                                                class="btn btn-primary mr-1">
+                                                                class="btn btn-sm btn-outline-primary mr-1">
                                                                 <i class="fas fa-pen"></i>
                                                             </a>
                                                         @endif
                                                         @can('admin-view')
-                                                            <a href="" class="btn btn btn-info mr-1" data-toggle="modal"
-                                                                data-target="#myModal-{{ $admin->id }}">
+                                                            <a href="" class="btn btn-sm btn-outline-info mr-1"
+                                                                data-toggle="modal" data-target="#myModal-{{ $admin->id }}">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
                                                         @endcan
@@ -77,7 +77,8 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class=" btn btn-danger show_confirm">
+                                                                <button type="submit"
+                                                                    class=" btn btn-sm btn-outline-danger show_confirm">
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
                                                             </form>

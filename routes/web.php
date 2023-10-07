@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\auth\LoginController;
+use App\Http\Controllers\backend\BackupDatabaseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SystemAdminController;
@@ -45,9 +46,13 @@ Route::prefix('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
     /*resource controller */
-    Route::resource('role',RoleController::class);
-    Route::resource('system/admin',SystemAdminController::class);
+    Route::resource('role', RoleController::class);
+    Route::resource('system/admin', SystemAdminController::class);
+    Route::resource('backup', BackupDatabaseController::class);
 
     /*Ajax call */
-    Route::get('check/is_active/{id}',[SystemAdminController::class,'changeStatus'])->name('admin.active.ajax');
+    Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');
+
+    /*System backup route*/
+    Route::get('/backup/download/{file_name}', [BackupDatabaseController::class, 'download'])->name('admin.backupDownload');
 });

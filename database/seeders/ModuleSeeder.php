@@ -18,6 +18,7 @@ class ModuleSeeder extends Seeder
             'Dashboard',
             'System Roles',
             'System Admins',
+            'Database Backup',
         ];
         foreach ($module_array as $module) {
             Module::Create([
