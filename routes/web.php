@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\auth\LoginController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\SystemAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,4 +46,8 @@ Route::prefix('admin')->group(function () {
 
     /*resource controller */
     Route::resource('role',RoleController::class);
+    Route::resource('system/admin',SystemAdminController::class);
+
+    /*Ajax call */
+    Route::get('check/is_active/{id}',[SystemAdminController::class,'changeStatus'])->name('admin.active.ajax');
 });

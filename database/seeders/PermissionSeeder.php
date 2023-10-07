@@ -24,6 +24,13 @@ class PermissionSeeder extends Seeder
             'Role Edit',
             'Role Delete',
         ];
+        $adminSystemAdminPermissionArray = [
+            'Admin List',
+            'Admin Create',
+            'Admin Edit',
+            'Admin View',
+            'Admin Delete',
+        ];
 
         //Access Dashboard
         $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
@@ -41,6 +48,15 @@ class PermissionSeeder extends Seeder
                 'module_id' => $adminSystemRoleModule->id,
                 'permission_name' => $adminSystemRolePermissionArray[$i],
                 'permission_slug' => Str::slug($adminSystemRolePermissionArray[$i]),
+            ]);
+        }
+        //system admins
+        $adminSystemAdminModule = Module::where('module_name', 'System Admins')->select('id')->first();
+        for ($i = 0; $i < count($adminSystemAdminPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminSystemAdminModule->id,
+                'permission_name' => $adminSystemAdminPermissionArray[$i],
+                'permission_slug' => Str::slug($adminSystemAdminPermissionArray[$i]),
             ]);
         }
     }

@@ -16,7 +16,8 @@ class ModuleSeeder extends Seeder
     {
         $module_array = [
             'Dashboard',
-            'System Roles'
+            'System Roles',
+            'System Admins',
         ];
         foreach ($module_array as $module) {
             Module::Create([

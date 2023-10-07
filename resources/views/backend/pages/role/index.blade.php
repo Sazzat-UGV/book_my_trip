@@ -20,7 +20,7 @@
                             </div>
                         @endcan
                         <div class="table-responsive text-nowrap py-4 ">
-                            <table id="example" class="table table-striped text-dark" style="width:100%">
+                            <table id="example" class="table table-hover text-dark" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>#</th>

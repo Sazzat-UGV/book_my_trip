@@ -16,9 +16,9 @@
     @endcan
     <hr class="sidebar-divider">
 
-    @if (Auth::user()->haspermission('role-list'))
+    @if (Auth::user()->haspermission('role-list') || Auth::user()->haspermission('admin-list'))
         <div class="sidebar-heading">
-            System Settings
+            System Administration
         </div>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#role" aria-expanded="true"
@@ -31,6 +31,22 @@
                     <a class="collapse-item" href="{{ route('role.index') }}">Role List</a>
                     @can('role-create')
                         <a class="collapse-item" href="{{ route('role.create') }}">Add New Role</a>
+                    @endcan
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admin"
+                aria-expanded="true" aria-controls="admin">
+                <i class="fas fa-fw fa-user-cog"></i>
+                <span>System Admins</span>
+            </a>
+            <div id="admin" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.index') }}">Admin List</a>
+                    @can('admin-create')
+                        <a class="collapse-item" href="{{ route('admin.create') }}">Add New Admin</a>
                     @endcan
                 </div>
             </div>
