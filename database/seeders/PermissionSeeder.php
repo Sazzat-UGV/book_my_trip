@@ -37,6 +37,12 @@ class PermissionSeeder extends Seeder
             'Backup Delete',
             'Backup Download',
         ];
+        $adminSlidersPermissionArray = [
+            'Slider List',
+            'Slider Create',
+            'Slider Edit',
+            'Slider Delete',
+        ];
 
         //Access Dashboard
         $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
@@ -47,6 +53,31 @@ class PermissionSeeder extends Seeder
                 'permission_slug' => Str::slug($adminDashboardPermissionArray[$i]),
             ]);
         }
+        //sliders
+        $adminSlidersModule = Module::where('module_name', 'Sliders')->select('id')->first();
+        for ($i = 0; $i < count($adminSlidersPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminSlidersModule->id,
+                'permission_name' => $adminSlidersPermissionArray[$i],
+                'permission_slug' => Str::slug($adminSlidersPermissionArray[$i]),
+            ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //system roles
         $adminSystemRoleModule = Module::where('module_name', 'System Roles')->select('id')->first();
         for ($i = 0; $i < count($adminSystemRolePermissionArray); $i++) {

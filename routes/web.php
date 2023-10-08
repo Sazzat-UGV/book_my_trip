@@ -5,7 +5,9 @@ use App\Http\Controllers\backend\auth\LoginController;
 use App\Http\Controllers\backend\BackupDatabaseController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SystemAdminController;
+use App\Http\Controllers\frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('')->group(function () {
+    Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 });
 
 
@@ -49,9 +51,11 @@ Route::prefix('admin')->group(function () {
     Route::resource('role', RoleController::class);
     Route::resource('system/admin', SystemAdminController::class);
     Route::resource('backup', BackupDatabaseController::class);
+    Route::resource('slider', SliderController::class);
 
     /*Ajax call */
     Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');
+    Route::get('slider/is_active/{id}', [SliderController::class, 'changeStatus'])->name('admin.active.ajax');
 
     /*System backup route*/
     Route::get('/backup/download/{file_name}', [BackupDatabaseController::class, 'download'])->name('admin.backupDownload');

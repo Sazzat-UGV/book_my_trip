@@ -16,6 +16,7 @@ class ModuleSeeder extends Seeder
     {
         $module_array = [
             'Dashboard',
+            'Sliders',
             'System Roles',
             'System Admins',
             'Database Backup',

@@ -16,6 +16,67 @@
     @endcan
     <hr class="sidebar-divider">
 
+
+    @if (Auth::user()->haspermission('slider-list'))
+        <div class="sidebar-heading">
+            Interfaces
+        </div>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#slider"
+                aria-expanded="true" aria-controls="slider">
+                <i class="fas fa-fw fa-sliders-h"></i>
+                <span>Sliders</span>
+            </a>
+            <div id="slider" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('slider.index') }}">Slider List</a>
+                    @can('slider-create')
+                        <a class="collapse-item" href="{{ route('slider.create') }}">Add New Slider</a>
+                    @endcan
+                </div>
+            </div>
+        </li>
+    @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <hr class="sidebar-divider">
     @if (Auth::user()->haspermission('role-list') || Auth::user()->haspermission('admin-list'))
         <div class="sidebar-heading">
             System Administration
@@ -53,8 +114,8 @@
         </li>
     @endif
 
-    <hr class="sidebar-divider">
 
+    <hr class="sidebar-divider">
     @if (Auth::user()->haspermission('backup-list'))
         <div class="sidebar-heading">
             Settings
@@ -67,6 +128,4 @@
             </li>
         @endcan
     @endif
-
-
 </ul>
