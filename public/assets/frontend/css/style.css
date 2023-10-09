@@ -72,6 +72,16 @@ font-size:16px;
  background:#ffffff!important;
  color:#666666!important;
 	}
+
+    .custom_text{
+    color:#666666;
+	font-size:14px;
+	background:#f4f7f8;
+	}
+.custom_text:hover{
+ background:#ffffff!important;
+ color:#666666!important;
+	}
 .text_2{
     color:#666666;
 	margin-top:5px;

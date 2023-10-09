@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\auth\LoginController;
 use App\Http\Controllers\backend\BackupDatabaseController;
+use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SliderController;
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
+    Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+    Route::post('/contact', [HomeController::class, 'contact_post'])->name('contact_post');
 });
 
 
@@ -52,6 +55,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('system/admin', SystemAdminController::class);
     Route::resource('backup', BackupDatabaseController::class);
     Route::resource('slider', SliderController::class);
+    Route::resource('contact', ContactController::class)->only(['index','destroy']);
 
     /*Ajax call */
     Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');

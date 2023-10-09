@@ -48,98 +48,79 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 routes_main">
-                    <h2> <i class="fa fa-plane"></i>Our New Airways *</h2>
+                    <h2> <i class="fa fa-hiking"></i>Our New Trip *</h2>
+
                     <div class="col-sm-3">
-                        <div class="routes_inner">
+                        <div class="routes_inner pb-5">
                             <a href="#"><img src="img/4.jpg" width="100%"></a>
                             <div class="routes_inner_1 clearfix">
                                 <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 2000 <span class="price_1">3500</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/5.jpg" width="100%"></a>
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
                             <div class="routes_inner_1 clearfix">
                                 <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 3000 <span class="price_1">4500</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/6.jpg" width="100%"></a>
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
                             <div class="routes_inner_1 clearfix">
                                 <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 6500 <span class="price_1">8500</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/7.jpg" width="100%"></a>
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
                             <div class="routes_inner_1 clearfix">
                                 <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 6000 <span class="price_1">7500</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
+                    <div class="col-sm-3">
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
+                            <div class="routes_inner_1 clearfix">
+                                <h4>India to America</h4>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
+                            <div class="routes_inner_1 clearfix">
+                                <h4>India to America</h4>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="routes_inner pb-5">
+                            <a href="#"><img src="img/4.jpg" width="100%"></a>
+                            <div class="routes_inner_1 clearfix">
+                                <h4>India to America</h4>
+                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
+                                <span> <a href="#">View Details</a></span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/8.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 4000 <span class="price_1">5000</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/9.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 5000 <span class="price_1">6500</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/10.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 2500 <span class="price_1">4000</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner">
-                            <a href="#"><img src="img/11.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa fa-rupee"></i> 1500 <span class="price_1">3000</span></p>
-                                <span> <a href="#">View Ways</a></span>
-                                <span class="booking_1"> <a href="#">Book Now</a></span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-sm-12 routes_bottom">
                     <p> * According to Our Term and Condition</p>
@@ -147,6 +128,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section id="customer">
         <div class="container">

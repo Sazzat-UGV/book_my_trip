@@ -165,17 +165,16 @@
                 $('#example').DataTable({
                     pagingType: 'first_last_numbers',
                     columnDefs: [
-                        { width: '5%', targets: 0 }, // Column 1 (index 0) width
-                        { width: '10%', targets: 1 }, // Column 2 (index 1) width
-                        { width: '40%', targets: 2 }, // Column 3 (index 2) width
-                        { width: '15%', targets: 3 }, // Column 4 (index 3) width
-                        { width: '20%', targets: 4 }, // Column 5 (index 4) width
-                        { width: '5%', targets: 5 }, // Column 6 (index 5) width
-                        { width: '5%', targets: 6 }, // Column 7 (index 6) width
+                        { width: '5%', targets: 0 },
+                        { width: '10%', targets: 1 },
+                        { width: '40%', targets: 2 },
+                        { width: '15%', targets: 3 },
+                        { width: '20%', targets: 4 },
+                        { width: '5%', targets: 5 },
+                        { width: '5%', targets: 6 },
                     ]
                 });
 
-                // Rest of your code...
             });
         </script>
 

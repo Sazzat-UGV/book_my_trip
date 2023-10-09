@@ -43,6 +43,10 @@ class PermissionSeeder extends Seeder
             'Slider Edit',
             'Slider Delete',
         ];
+        $adminContactsPermissionArray = [
+            'Contact List',
+            'Contact Delete',
+        ];
 
         //Access Dashboard
         $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
@@ -60,6 +64,15 @@ class PermissionSeeder extends Seeder
                 'module_id' => $adminSlidersModule->id,
                 'permission_name' => $adminSlidersPermissionArray[$i],
                 'permission_slug' => Str::slug($adminSlidersPermissionArray[$i]),
+            ]);
+        }
+        //contacts
+        $adminContactsModule = Module::where('module_name', 'Contacts')->select('id')->first();
+        for ($i = 0; $i < count($adminContactsPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminContactsModule->id,
+                'permission_name' => $adminContactsPermissionArray[$i],
+                'permission_slug' => Str::slug($adminContactsPermissionArray[$i]),
             ]);
         }
 

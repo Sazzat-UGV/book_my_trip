@@ -17,7 +17,7 @@
     <hr class="sidebar-divider">
 
 
-    @if (Auth::user()->haspermission('slider-list'))
+    @if (Auth::user()->haspermission('slider-list') || Auth::user()->haspermission('contact-list'))
         <div class="sidebar-heading">
             Interfaces
         </div>
@@ -36,6 +36,15 @@
                 </div>
             </div>
         </li>
+
+        @can('contact-list')
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('contact.index') }}">
+                    <i class="fas fa-fw fa-phone-alt"></i>
+                    <span>Contacts</span></a>
+            </li>
+        @endcan
+        
     @endif
 
 
