@@ -17,7 +17,9 @@
     <hr class="sidebar-divider">
 
 
-    @if (Auth::user()->haspermission('slider-list') || Auth::user()->haspermission('contact-list'))
+    @if (Auth::user()->haspermission('slider-list') ||
+    Auth::user()->haspermission('contact-list')||
+    Auth::user()->haspermission('category-list'))
         <div class="sidebar-heading">
             Interfaces
         </div>
@@ -36,6 +38,21 @@
                 </div>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#category"
+                aria-expanded="true" aria-controls="category">
+                <i class="fas fa-fw fa-th-list"></i>
+                <span>Categories</span>
+            </a>
+            <div id="category" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('category.index') }}">Category List</a>
+                    @can('category-create')
+                        <a class="collapse-item" href="{{ route('category.create') }}">Add New Category</a>
+                    @endcan
+                </div>
+            </div>
+        </li>
 
         @can('contact-list')
             <li class="nav-item">
@@ -44,7 +61,7 @@
                     <span>Contacts</span></a>
             </li>
         @endcan
-        
+
     @endif
 
 

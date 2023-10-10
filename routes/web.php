@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\auth\LoginController;
 use App\Http\Controllers\backend\BackupDatabaseController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
@@ -55,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('system/admin', SystemAdminController::class);
     Route::resource('backup', BackupDatabaseController::class);
     Route::resource('slider', SliderController::class);
+    Route::resource('category', CategoryController::class);
     Route::resource('contact', ContactController::class)->only(['index','destroy']);
 
     /*Ajax call */

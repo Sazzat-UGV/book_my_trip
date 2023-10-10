@@ -18,6 +18,7 @@ class ModuleSeeder extends Seeder
             'Dashboard',
             'Sliders',
             'Contacts',
+            'Categories',
             'System Roles',
             'System Admins',
             'Database Backup',
