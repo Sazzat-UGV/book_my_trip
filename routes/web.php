@@ -29,6 +29,7 @@ Route::prefix('')->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'contact_post'])->name('contact_post');
     Route::get('/package', [HomeController::class, 'package'])->name('package');
+    Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
 });
 
 

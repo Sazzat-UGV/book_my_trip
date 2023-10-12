@@ -257,7 +257,7 @@
                                     <span class="review-no"><strong class="text-danger text-bold">Category:
                                         </strong>{{ $packages->category->category_name }}</span>
                                 </div>
-                                <p class="product-description">{{ $packages->package_details }}</p>
+                                <p class="product-description"><span class="review-no"><strong class="text-danger text-bold">Details:</strong></span>{!! $packages->package_details !!}</p>
                                 <h4 class="price">price: <span>৳{{ $packages->package_price }}</span></h4>
                                 <p class="vote"><strong>Period: </strong>{{ $packages->package_period }} DAY</p>
                                 <p class="vote"><strong>Validity:

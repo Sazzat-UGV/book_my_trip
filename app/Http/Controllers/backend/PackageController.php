@@ -66,7 +66,7 @@ class PackageController extends Controller
     public function show(string $id)
     {
         Gate::authorize('package-view');
-        $packages = Package::with('category:id,category_name')->where('id', $id)->select('id', 'package_name','start_from', 'package_period', 'package_price', 'package_image', 'package_details', 'package_rating', 'starting_date', 'ending_date', 'is_active',  'category_id',  'created_at')->latest('id')->first();
+        $packages = Package::with('category:id,category_name')->where('id', $id)->select('id', 'package_name','start_from', 'package_period', 'package_price', 'package_image', 'package_details', 'package_rating', 'starting_date', 'ending_date', 'is_active',  'category_id',  'created_at')->first();
         $images = PackageImage::where('package_id', $id)->get();
         return view('backend.pages.package.view', compact('packages', 'images'));
     }

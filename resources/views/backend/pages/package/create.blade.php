@@ -122,8 +122,7 @@
 
                                 <div class="col-4 mb-3">
                                     <label for="start_from">Start From<span class="text-danger">*</span></label>
-                                    <input type="text" id="start_from" name="start_from"
-                                        value="{{ old('start_from') }}"
+                                    <input type="text" id="start_from" name="start_from" value="{{ old('start_from') }}"
                                         class="form-control @error('start_from')
                                     is-invalid
                                     @enderror">
@@ -135,7 +134,7 @@
 
                                 <div class="col-12 mb-3">
                                     <label>Package Details<span class="text-danger">*</span></label>
-                                    <textarea name="package_details" id="" cols="30" rows="5"
+                                    <textarea name="package_details" id="editor" cols="30" rows="5"
                                         class="form-control @error('package_details')
                                 is-invalid
                                 @enderror"
@@ -186,11 +185,24 @@
         integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+
     <script>
         $('.dropify').dropify({
             messages: {
                 'default': 'Drag and drop your image here or click',
             }
         });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @endpush

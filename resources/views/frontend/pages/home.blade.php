@@ -35,7 +35,7 @@
                                         <h1>{{ $slider->slider_heading }}</h1>
                                         <h4>{{ $slider->slider_details }}</h4>
                                     </hgroup>
-                                    <button class="btn btn-hero btn-lg" role="button">Trip Now</button>
+                                    <a  class="btn btn-danger btn-lg" href="{{ route('package') }}">Trip Now</a>
                                 </div>
                             </div>
                         </div>
@@ -55,11 +55,14 @@
                         @foreach ($latest_package as $package)
                             <div class="col-sm-3">
                                 <div class="routes_inner">
-                                    <a href="#"><img src="{{ asset('uploads/package') }}/{{ $package->package_image }}" width="100%"></a>
+                                    <a href="{{ route('detail',['id'=>$package->id]) }}"><img
+                                            src="{{ asset('uploads/package') }}/{{ $package->package_image }}"
+                                            width="100%"></a>
                                     <div class="routes_inner_1 clearfix">
                                         <h4>{{ $package->package_name }}</h4>
-                                        <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> {{ $package->package_price }}</p>
-                                        <span><a href="#">View Details</a></span>
+                                        <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i>
+                                            {{ $package->package_price }}</p>
+                                        <span><a href="{{ route('detail',['id'=>$package->id]) }}">View Details</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +119,7 @@
                 <div class="col-sm-12 destination">
                     @foreach ($topPackage as $package)
                         <div class="col-sm-2 destination_1">
-                            <a href="#"><img src="{{ asset('uploads/package') }}/{{ $package->package_image }}"
+                            <a href="{{ route('detail',['id'=>$package->id]) }}"><img src="{{ asset('uploads/package') }}/{{ $package->package_image }}"
                                     width="100%"></a>
                             <h3>{{ $package->package_name }}</h3>
                         </div>

@@ -26,7 +26,7 @@
                                     <div class="click clearfix">
                                         <div class="col-sm-3 trip_detail_left_main">
                                             <div class="trip_detail_main clearfix">
-                                                <div class="trip_detail_image"><a href="#"><img
+                                                <div class="trip_detail_image"><a href="{{ route('detail',['id'=>$package->id]) }}"><img
                                                             src="{{ asset('uploads/package') }}/{{ $package->package_image }}"
                                                             width="100%" height="237px"></a></div>
                                             </div>
@@ -34,7 +34,7 @@
                                         <div class="col-sm-9 trip_detail_right_main">
                                             <div class="trip_detail_right clearfix">
                                                 <div class="col-sm-9 clearfix trip_detail_right_inner">
-                                                    <h3><a href="#"><i
+                                                    <h3><a href="{{ route('detail',['id'=>$package->id]) }}"><i
                                                                 class="fa fa-umbrella"></i>{{ $package->package_name }}</a>
                                                     </h3>
                                                     <p>Trip Period: <strong>{{ $package->package_period }} Days</strong></p>
@@ -60,7 +60,7 @@
                                                     <h2 class="text-right">৳ {{ $package->package_price }}</h2>
                                                     <h5 class="text-right">One person / One Thing</h5>
                                                     <h4 class="text-right">
-                                                        <a href="#"><i class="fa fa-info-circle"></i>View Details</a>
+                                                        <a href="{{ route('detail',['id'=>$package->id]) }}">View Details</a>
 
                                                     </h4>
                                                 </div>
