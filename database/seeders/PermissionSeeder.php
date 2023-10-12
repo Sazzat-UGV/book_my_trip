@@ -53,6 +53,13 @@ class PermissionSeeder extends Seeder
             'Contact List',
             'Contact Delete',
         ];
+        $adminPackagesPermissionArray = [
+            'Package List',
+            'Package Create',
+            'Package Edit',
+            'Package View',
+            'Package Delete',
+        ];
 
         //Access Dashboard
         $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
@@ -88,6 +95,15 @@ class PermissionSeeder extends Seeder
                 'module_id' => $adminCategoriesModule->id,
                 'permission_name' => $adminCategoriesPermissionArray[$i],
                 'permission_slug' => Str::slug($adminCategoriesPermissionArray[$i]),
+            ]);
+        }
+        //Packages
+        $adminPackagesModule = Module::where('module_name', 'Packages')->select('id')->first();
+        for ($i = 0; $i < count($adminPackagesPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminPackagesModule->id,
+                'permission_name' => $adminPackagesPermissionArray[$i],
+                'permission_slug' => Str::slug($adminPackagesPermissionArray[$i]),
             ]);
         }
 

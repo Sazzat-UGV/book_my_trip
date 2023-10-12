@@ -19,6 +19,7 @@ class ModuleSeeder extends Seeder
             'Sliders',
             'Contacts',
             'Categories',
+            'Packages',
             'System Roles',
             'System Admins',
             'Database Backup',

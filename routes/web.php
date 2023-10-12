@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\BackupDatabaseController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\PackageController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SystemAdminController;
@@ -27,6 +28,7 @@ Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'contact_post'])->name('contact_post');
+    Route::get('/package', [HomeController::class, 'package'])->name('package');
 });
 
 
@@ -57,11 +59,14 @@ Route::prefix('admin')->group(function () {
     Route::resource('backup', BackupDatabaseController::class);
     Route::resource('slider', SliderController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('package', PackageController::class);
     Route::resource('contact', ContactController::class)->only(['index','destroy']);
 
     /*Ajax call */
     Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');
     Route::get('slider/is_active/{id}', [SliderController::class, 'changeStatus'])->name('admin.active.ajax');
+    Route::get('category/is_active/{id}', [CategoryController::class, 'changeStatus'])->name('admin.active.ajax');
+    Route::get('package/is_active/{id}', [PackageController::class, 'changeStatus'])->name('admin.active.ajax');
 
     /*System backup route*/
     Route::get('/backup/download/{file_name}', [BackupDatabaseController::class, 'download'])->name('admin.backupDownload');

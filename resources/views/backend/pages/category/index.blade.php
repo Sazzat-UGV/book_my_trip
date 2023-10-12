@@ -25,6 +25,9 @@
                                         <th>#</th>
                                         <th>Created at</th>
                                         <th>Category Name</th>
+                                        @can('category-edit')
+                                        <th>Status</th>
+                                        @endcan
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -34,6 +37,17 @@
                                             <th scope="row">{{ $index + 1 }}</th>
                                             <td>{{ $category->created_at->format('d-M-Y') }}</td>
                                             <td>{{ $category->category_name }}</td>
+                                            @can('category-edit')
+                                            <td>
+                                                <div class="custom-control custom-switch">
+                                                    <input class="custom-control-input toggle-class" type="checkbox"
+                                                        data-id="{{ $category->id }}" id="category-{{ $category->id }}"
+                                                        {{ $category->is_active ? 'checked' : '' }}>
+                                                    <label class="custom-control-label"
+                                                        for="category-{{ $category->id }}"></label>
+                                                </div>
+                                            </td>
+                                        @endcan
                                             <td class="text-right">
                                                 <div class="actions d-flex justify-content-start">
                                                     <a href="{{ route('category.edit', $category->id) }}"
@@ -78,6 +92,30 @@
                 pagingType: 'first_last_numbers',
 
             });
+
+            $('.toggle-class').change(function() {
+                    var is_active = $(this).prop('checked') == true ? 1 : 0;
+                    var item_id = $(this).data('id');
+
+                    $.ajax({
+                        type: "GET",
+                        dataType: "json",
+                        url: '/admin/category/is_active/' + item_id,
+                        success: function(response) {
+                            console.log(response);
+                            Swal.fire(
+                                'Status Updated!',
+                                'Click ok button!',
+                                'success'
+                            )
+                        },
+                        errro: function(err) {
+                            if (err) {
+                                console.log(err);
+                            }
+                        }
+                    });
+                });
 
 
             $('.show_confirm').click(function(event) {

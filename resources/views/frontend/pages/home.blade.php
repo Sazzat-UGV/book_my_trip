@@ -4,7 +4,8 @@
 @push('user_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
 @endpush
 @section('content')
     <section id="center">
@@ -48,86 +49,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 routes_main">
-                    <h2> <i class="fa fa-hiking"></i>Our New Trip *</h2>
+                    <h2><i class="fa fa-hiking"></i>Our New Trip</h2>
 
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        @foreach ($latest_package as $package)
+                            <div class="col-sm-3">
+                                <div class="routes_inner">
+                                    <a href="#"><img src="{{ asset('uploads/package') }}/{{ $package->package_image }}" width="100%"></a>
+                                    <div class="routes_inner_1 clearfix">
+                                        <h4>{{ $package->package_name }}</h4>
+                                        <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> {{ $package->package_price }}</p>
+                                        <span><a href="#">View Details</a></span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="routes_inner pb-5">
-                            <a href="#"><img src="img/4.jpg" width="100%"></a>
-                            <div class="routes_inner_1 clearfix">
-                                <h4>India to America</h4>
-                                <p><i class="fa-solid fa-sm fa-bangladeshi-taka-sign"></i> 2000 </p>
-                                <span> <a href="#">View Details</a></span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
                 <div class="col-sm-12 routes_bottom">
-                    <p> * According to Our Term and Condition</p>
+                    <p>* According to Our Terms and Conditions</p>
                 </div>
             </div>
         </div>
     </section>
+
 
 
 
@@ -166,33 +111,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2> <i class="fa fa-map-marker"></i> Our Holiday Packages</h2>
+                    <h2> <i class="fa fa-map-marker"></i> Our Top Packages</h2>
                 </div>
                 <div class="col-sm-12 destination">
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/14.jpg" width="100%"></a>
-                        <h3>Singapore</h3>
-                    </div>
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/15.jpg" width="100%"></a>
-                        <h3>America</h3>
-                    </div>
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/16.jpg" width="100%"></a>
-                        <h3>Thiland</h3>
-                    </div>
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/17.jpg" width="100%"></a>
-                        <h3>Nepal</h3>
-                    </div>
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/18.jpg" width="100%"></a>
-                        <h3>Jakarta</h3>
-                    </div>
-                    <div class="col-sm-2 destination_1">
-                        <a href="#"><img src="img/19.jpg" width="100%"></a>
-                        <h3>Australia</h3>
-                    </div>
+                    @foreach ($topPackage as $package)
+                        <div class="col-sm-2 destination_1">
+                            <a href="#"><img src="{{ asset('uploads/package') }}/{{ $package->package_image }}"
+                                    width="100%"></a>
+                            <h3>{{ $package->package_name }}</h3>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

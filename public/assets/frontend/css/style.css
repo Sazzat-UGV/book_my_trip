@@ -590,6 +590,7 @@ margin-right:15px;
 .routes_inner{
 background:#ffffff;
 border-radius:5px;
+margin-bottom: 15px;
   }
 .routes_inner_1{
 padding:15px;
@@ -645,7 +646,7 @@ border-color:#ED1C24;
    padding:0;
    margin:0;
    font-size:14px;
-   padding-top:30px;
+   padding-top:10px;
 	}
 /*********************routes_end****************/
 /*********************customer****************/

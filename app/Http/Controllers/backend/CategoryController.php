@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         Gate::authorize('category-list');
-        $categories=Category::select('id','category_name','created_at')->latest('id')->get();
+        $categories=Category::select('id','category_name','created_at','is_active')->latest('id')->get();
         return view('backend.pages.category.index',compact('categories'));
     }
 
@@ -91,5 +91,20 @@ class CategoryController extends Controller
         $category->delete();
         Toastr::success('Category deleted successfully');
         return redirect()->route('category.index');
+    }
+
+    public function changeStatus(string $id)
+    {
+        $category = Category::find($id);
+        if ($category->is_active == 1) {
+            $category->is_active = 0;
+        } else {
+            $category->is_active = 1;
+        }
+        $category->update();
+        return response()->json([
+            'type' => 'success',
+            'message' => 'Status Updated',
+        ]);
     }
 }

@@ -39,7 +39,7 @@
                                     class="form-control @error('slider_details')
                                 is-invalid
                                 @enderror"
-                                    placeholder="Enter slider details">{{ old('slider_heading') }}</textarea>
+                                    placeholder="Enter slider details">{{ old('slider_details') }}</textarea>
                                 @error('slider_details')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
