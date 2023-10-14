@@ -20,6 +20,7 @@ class ModuleSeeder extends Seeder
             'Contacts',
             'Categories',
             'Packages',
+            'Flights',
             'System Roles',
             'System Admins',
             'Database Backup',

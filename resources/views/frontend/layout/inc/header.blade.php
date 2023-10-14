@@ -21,6 +21,7 @@
                         <ul class="nav navbar-nav">
                             <li><a class="text_2" href="{{ route('homepage') }}">Home</a></li>
                             <li><a class="text_2" href="{{ route('package') }}">Package</a></li>
+                            <li><a class="text_2" href="{{ route('flight') }}">Flight</a></li>
                             <li><a class="text_2" href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

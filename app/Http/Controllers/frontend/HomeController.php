@@ -51,7 +51,7 @@ class HomeController extends Controller
         return back();
     }
 
-    
+
     public function package()
     {
         $categories = Category::with('package')->where('is_active', 1)->select('id', 'category_name')->get();
@@ -65,4 +65,5 @@ class HomeController extends Controller
         $images = PackageImage::where('package_id', $id)->get();
         return view('frontend.pages.package_details',compact('package','images'));
     }
+
 }

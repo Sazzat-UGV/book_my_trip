@@ -8,12 +8,6 @@
         referrerpolicy="no-referrer" />
 
     <style>
-        /* Style for the increment-decrement container */
-        /* .increment-decrement {
-            display: flex;
-            align-items: center;
-        } */
-
         /* Style for the decrement button */
         .increment-decrement button:nth-child(1) {
             padding: 5px 10px;

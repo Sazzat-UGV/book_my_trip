@@ -20,7 +20,8 @@
     @if (Auth::user()->haspermission('slider-list') ||
             Auth::user()->haspermission('contact-list') ||
             Auth::user()->haspermission('category-list') ||
-            Auth::user()->haspermission('package-list'))
+            Auth::user()->haspermission('package-list')||
+            Auth::user()->haspermission('flight-list'))
         <div class="sidebar-heading">
             Interfaces
         </div>
@@ -70,6 +71,23 @@
                         <a class="collapse-item" href="{{ route('package.index') }}">Package List</a>
                         @can('package-create')
                             <a class="collapse-item" href="{{ route('package.create') }}">Add New Package</a>
+                        @endcan
+                    </div>
+                </div>
+            </li>
+        @endcan
+        @can('flight-list')
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#flight"
+                    aria-expanded="true" aria-controls="flight">
+                    <i class="fas fa-plane"></i>
+                    <span>Flights</span>
+                </a>
+                <div id="flight" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('flight.index') }}">Flight List</a>
+                        @can('flight-create')
+                            <a class="collapse-item" href="{{ route('flight.create') }}">Add New Flight</a>
                         @endcan
                     </div>
                 </div>
