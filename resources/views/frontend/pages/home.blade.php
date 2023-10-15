@@ -83,26 +83,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-sm-4 customer_1">
-                        <img src="img/12.jpg" width="100%">
+                    <div class="col-sm-5 customer_1">
+                    <img src="{{ asset('assets/frontend/img/Plane.jpg') }}" width="100%">
                     </div>
-                    <div class="col-sm-8 customer_2">
-                        <h3> Lorem ipsum dolor sit consectetur adipiscing </h3>
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-5 customer_2 pr-4">
+                        <h3> Visit our Airways </h3>
                         <div class="customer_2_inner clearfix">
-                            <div class="col-sm-8 customer_2_inner_1">
+                            <div class="col-sm-12 customer_2_inner_1">
                                 <h4>Download Our app & </h4>
                                 <p>Get upto <span>100 OFF*</span> per travel on Airways</p>
                                 <p>Full <span>10% OFF*</span> on Travel Tickets</p>
                             </div>
-                            <div class="col-sm-4 customer_2_inner_2 text-center">
-                                <h4> Use Recharge code</h4>
-                                <p>DAPIBUS</p>
-                            </div>
 
-                        </div>
-                        <div class="customer_last">
-                            <a href="#"><img src="img/13.png"></a>
-                            <a href="#"><img src="img/13.png"></a>
                         </div>
                     </div>
                 </div>
