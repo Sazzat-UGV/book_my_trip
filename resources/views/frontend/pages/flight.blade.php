@@ -143,8 +143,6 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                    <p class="text-center">No flights found.</p>
                 @endif
             </div>
         </div>

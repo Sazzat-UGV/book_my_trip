@@ -60,6 +60,13 @@ class PermissionSeeder extends Seeder
             'Package View',
             'Package Delete',
         ];
+        $adminHotelsPermissionArray = [
+            'Hotel List',
+            'Hotel Create',
+            'Hotel Edit',
+            'Hotel View',
+            'Hotel Delete',
+        ];
         $adminFlightsPermissionArray = [
             'Flight List',
             'Flight Create',
@@ -119,6 +126,15 @@ class PermissionSeeder extends Seeder
                 'module_id' => $adminFlightsModule->id,
                 'permission_name' => $adminFlightsPermissionArray[$i],
                 'permission_slug' => Str::slug($adminFlightsPermissionArray[$i]),
+            ]);
+        }
+        //Hotels
+        $adminHotelsModule = Module::where('module_name', 'Hotels')->select('id')->first();
+        for ($i = 0; $i < count($adminHotelsPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminHotelsModule->id,
+                'permission_name' => $adminHotelsPermissionArray[$i],
+                'permission_slug' => Str::slug($adminHotelsPermissionArray[$i]),
             ]);
         }
 

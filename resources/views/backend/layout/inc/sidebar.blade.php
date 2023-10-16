@@ -93,6 +93,23 @@
                 </div>
             </li>
         @endcan
+        @can('hotel-list')
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#hotel"
+                    aria-expanded="true" aria-controls="hotel">
+                    <i class="fas fa-building"></i>
+                    <span>Hotels</span>
+                </a>
+                <div id="hotel" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('hotel.index') }}">Hotel List</a>
+                        @can('hotel-create')
+                            <a class="collapse-item" href="{{ route('hotel.create') }}">Add New Hotel</a>
+                        @endcan
+                    </div>
+                </div>
+            </li>
+        @endcan
 
         @can('contact-list')
             <li class="nav-item">

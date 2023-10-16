@@ -7,12 +7,16 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\FlightController;
+use App\Http\Controllers\backend\HoteLController;
+use App\Http\Controllers\backend\HotelController as BackendHotelController;
 use App\Http\Controllers\backend\PackageController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SystemAdminController;
 use App\Http\Controllers\frontend\FlightController as FrontendFlightController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\HotelController as FrontendHotelController;
+use App\Http\Controllers\frontend\PackageController as FrontendPackageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,12 +32,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
+    /*contact routs*/
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'contact_post'])->name('contact_post');
-    Route::get('/package', [HomeController::class, 'package'])->name('package');
-    Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
+    /*package routs*/
+    Route::get('/package', [FrontendPackageController::class, 'package'])->name('package');
+    Route::get('/detail/{id}', [FrontendPackageController::class, 'detail'])->name('detail');
+    /*flight routs*/
     Route::get('/flight', [FrontendFlightController::class, 'flightPage'])->name('flight');
     Route::post('/flight', [FrontendFlightController::class, 'flightsearch'])->name('flightSearch');
+    /*hotel routs*/
+    Route::get('hotel',[FrontendHotelController::class,'hotelPage'])->name('hotel');
+    Route::post('/hotel', [FrontendHotelController::class, 'hotelsearch'])->name('hotelSearch');
+    Route::get('/hotel/{id}', [FrontendHotelController::class, 'detail'])->name('hotelDetail');
 
     /*Ajax route */
     Route::get('/get-to-data', [FrontendFlightController::class, 'getToData']);
@@ -70,6 +81,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('package', PackageController::class);
     Route::resource('contact', ContactController::class)->only(['index', 'destroy']);
     Route::resource('flight', FlightController::class);
+    Route::resource('hotel', HoteLController::class);
 
     /*Ajax call */
     Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');
@@ -77,6 +89,7 @@ Route::prefix('admin')->group(function () {
     Route::get('category/is_active/{id}', [CategoryController::class, 'changeStatus'])->name('admin.active.ajax');
     Route::get('package/is_active/{id}', [PackageController::class, 'changeStatus'])->name('admin.active.ajax');
     Route::get('flight/is_active/{id}', [FlightController::class, 'changeStatus'])->name('admin.active.ajax');
+    Route::get('hotel/is_active/{id}', [BackendHotelController::class, 'changeStatus'])->name('admin.active.ajax');
 
     /*System backup route*/
     Route::get('/backup/download/{file_name}', [BackupDatabaseController::class, 'download'])->name('admin.backupDownload');

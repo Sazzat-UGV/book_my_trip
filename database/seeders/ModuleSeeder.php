@@ -21,6 +21,7 @@ class ModuleSeeder extends Seeder
             'Categories',
             'Packages',
             'Flights',
+            'Hotels',
             'System Roles',
             'System Admins',
             'Database Backup',
