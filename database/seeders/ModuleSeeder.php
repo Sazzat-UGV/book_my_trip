@@ -18,6 +18,7 @@ class ModuleSeeder extends Seeder
             'Dashboard',
             'Sliders',
             'Contacts',
+            'Users',
             'Categories',
             'Packages',
             'Flights',

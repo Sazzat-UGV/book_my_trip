@@ -73,6 +73,9 @@ class PermissionSeeder extends Seeder
             'Flight Edit',
             'Flight Delete',
         ];
+        $adminUsersPermissionArray = [
+            'User List',
+        ];
 
         //Access Dashboard
         $adminDashboardModule = Module::where('module_name', 'Dashboard')->select('id')->first();
@@ -135,6 +138,15 @@ class PermissionSeeder extends Seeder
                 'module_id' => $adminHotelsModule->id,
                 'permission_name' => $adminHotelsPermissionArray[$i],
                 'permission_slug' => Str::slug($adminHotelsPermissionArray[$i]),
+            ]);
+        }
+        //Users
+        $adminUsersModule = Module::where('module_name', 'Users')->select('id')->first();
+        for ($i = 0; $i < count($adminUsersPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminUsersModule->id,
+                'permission_name' => $adminUsersPermissionArray[$i],
+                'permission_slug' => Str::slug($adminUsersPermissionArray[$i]),
             ]);
         }
 

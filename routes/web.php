@@ -13,6 +13,9 @@ use App\Http\Controllers\backend\PackageController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SystemAdminController;
+use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\frontend\auth\LoginController as AuthLoginController;
+use App\Http\Controllers\frontend\auth\RegistrationController;
 use App\Http\Controllers\frontend\FlightController as FrontendFlightController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\HotelController as FrontendHotelController;
@@ -42,9 +45,22 @@ Route::prefix('')->group(function () {
     Route::get('/flight', [FrontendFlightController::class, 'flightPage'])->name('flight');
     Route::post('/flight', [FrontendFlightController::class, 'flightsearch'])->name('flightSearch');
     /*hotel routs*/
-    Route::get('hotel',[FrontendHotelController::class,'hotelPage'])->name('hotel');
+    Route::get('hotel', [FrontendHotelController::class, 'hotelPage'])->name('hotel');
     Route::post('/hotel', [FrontendHotelController::class, 'hotelsearch'])->name('hotelSearch');
     Route::get('/hotel/{id}', [FrontendHotelController::class, 'detail'])->name('hotelDetail');
+
+    /*registration route*/
+    Route::post('registration', [RegistrationController::class, 'registration'])->name('registration');
+
+    /*login route*/
+    Route::post('login', [AuthLoginController::class, 'login'])->name('login');
+    Route::get('logout', [AuthLoginController::class, 'logout'])->name('logout');
+
+    /* Socialite Login Routes */
+    Route::group(['as' => 'login', 'prefix' => 'login'], function () {
+        Route::get('/{provider}', [RegistrationController::class, 'redirectToProvider'])->name('provider');
+        Route::get('/{provider}/callback', [RegistrationController::class, 'handleProviderCallback'])->name('provider.callback');
+    });
 
     /*Ajax route */
     Route::get('/get-to-data', [FrontendFlightController::class, 'getToData']);
@@ -82,6 +98,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('contact', ContactController::class)->only(['index', 'destroy']);
     Route::resource('flight', FlightController::class);
     Route::resource('hotel', HoteLController::class);
+    Route::resource('user', UserController::class)->only(['index']);
 
     /*Ajax call */
     Route::get('check/is_active/{id}', [SystemAdminController::class, 'changeStatus'])->name('admin.active.ajax');

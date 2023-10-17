@@ -44,7 +44,6 @@ class SystemAdminController extends Controller
         User::create([
             'role_id' => $request->role_id,
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -84,7 +83,6 @@ class SystemAdminController extends Controller
         $admin->update([
             'role_id' => $request->role_id,
             'name' => $request->name,
-            'slug' => Str::slug($request->name),
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
