@@ -1,5 +1,6 @@
 @extends('frontend.layout.master')
 @section('title')
+Package
 @endsection
 @push('user_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"

@@ -13,6 +13,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class RegistrationController extends Controller
 {
+
     public function registration(Request $request)
     {
         $request->validate([
@@ -34,10 +35,14 @@ class RegistrationController extends Controller
         return back();
     }
 
+
+
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
     }
+
+
 
     public function handleProviderCallback($provider)
     {
@@ -57,6 +62,6 @@ class RegistrationController extends Controller
             ]);
             Auth::login($newUser);
         }
-        return redirect()->route('homepage');
+        return redirect()->route('profilepage');
     }
 }

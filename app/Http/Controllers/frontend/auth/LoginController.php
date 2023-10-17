@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
     public function login(Request $request)
     {
         $validation = $request->validate([
@@ -23,8 +24,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->filled('remember')) && Auth::user()->is_active == 1) {
             $request->session()->regenerate();
-            // return redirect()->route();
-            return back();
+            return redirect()->route('profilepage');
         }
 
         Toastr::error('You are not a valid user !!!');
@@ -38,6 +38,6 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return back();
+        return redirect()->route('homepage');
     }
 }

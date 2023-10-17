@@ -20,6 +20,7 @@ use App\Http\Controllers\frontend\FlightController as FrontendFlightController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\HotelController as FrontendHotelController;
 use App\Http\Controllers\frontend\PackageController as FrontendPackageController;
+use App\Http\Controllers\frontend\UserController as FrontendUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,13 @@ Route::prefix('')->group(function () {
         Route::get('/{provider}', [RegistrationController::class, 'redirectToProvider'])->name('provider');
         Route::get('/{provider}/callback', [RegistrationController::class, 'handleProviderCallback'])->name('provider.callback');
     });
+
+    /*user route*/
+    Route::get('profile', [FrontendUserController::class, 'profilepage'])->name('profilepage');
+    Route::put('profile', [FrontendUserController::class, 'changeImage'])->name('changeImage');
+    Route::put('edit-profile', [FrontendUserController::class, 'editProfile'])->name('editProfile');
+    Route::get('change-password', [FrontendUserController::class, 'changePasswordPage'])->name('changePasswordPage');
+    Route::put('change-password', [FrontendUserController::class, 'changePassword'])->name('changePassword');
 
     /*Ajax route */
     Route::get('/get-to-data', [FrontendFlightController::class, 'getToData']);
