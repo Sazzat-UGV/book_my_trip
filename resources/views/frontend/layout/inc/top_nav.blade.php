@@ -40,7 +40,8 @@
                                                         <input type="password" name="password" class="form-control"
                                                             id="exampleInputPassword2" placeholder="Password"
                                                             required="">
-
+                                                            <div class="help-block text-right"><a href="{{ route('forgetPasswordPage') }}">Forget
+                                                                the password ?</a></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-primary btn-block">Sign

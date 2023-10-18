@@ -21,7 +21,7 @@
         }
 
         img {
-            max-width: 80%;
+            max-width: 60%;
         }
 
         img {
@@ -30,7 +30,7 @@
         }
 
         /* About Me
-                    ---------------------*/
+                        ---------------------*/
         .about-text h3 {
             font-size: 45px;
             font-weight: 700;
