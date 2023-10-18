@@ -1,12 +1,11 @@
 @extends('frontend.layout.master')
 @section('title')
-Package Details
+    Package Details
 @endsection
 @push('user_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* Style for the decrement button */
@@ -106,14 +105,26 @@ Package Details
                                 <!-- Display the number of members -->
                                 <div class="number-of-members">for <span id="memberCount">1 </span> person </div>
                                 <div class="d-flex justify-content-center pt-3">
-                                    <form id="myForm" action="your_action_url_here" method="POST">
+                                    <form id="myForm" action="{{ route('payment') }}" method="POST">
+                                        @csrf
                                         <div class="increment-decrement text-center">
-                                            <button type="button" class="btn btn-danger" onclick="decrementValue()">-</button>
-                                            <input type="number" name="number_of_member" id="number_of_member" value="1" oninput="calculateTotalPrice" disabled>
-                                            <button type="button" class="btn btn-success" onclick="incrementValue()">+</button>
+                                            <input type="hidden" name="module_id" value="1">
+                                            <input type="hidden" name="package_id" value="{{ $package->id }}">
+                                            <button type="button" class="btn btn-danger"
+                                                onclick="decrementValue()">-</button>
+                                            <input type="number" name="number_of_member" id="number_of_member"
+                                                value="1" oninput="calculateTotalPrice" disabled>
+                                            <button type="button" class="btn btn-success"
+                                                onclick="incrementValue()">+</button>
                                         </div>
                                         <div class="book_3 clearfix">
-                                            <a href="#" onclick="document.getElementById('myForm').submit();">Book</a>
+                                            @auth
+                                                <a href="#" onclick="submitForm()">Book</a>
+                                            @endauth
+                                            @guest
+                                                <h4 style="color: red">To booked the package you must login first</h4>
+                                            @endguest
+
                                         </div>
                                     </form>
                                 </div>
@@ -160,6 +171,13 @@ Package Details
             var inputElement = document.getElementById('number_of_member');
             var memberCountElement = document.getElementById('memberCount');
             memberCountElement.innerText = inputElement.value;
+        }
+
+        function submitForm() {
+            var memberCount = 0;
+            document.getElementById('memberCount').value = memberCount;
+            document.getElementById('number_of_member').removeAttribute('disabled');
+            document.getElementById('myForm').submit();
         }
     </script>
 @endpush

@@ -1,12 +1,11 @@
 @extends('frontend.layout.master')
 @section('title')
-Flight
+    Flight
 @endsection
 @push('user_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Style for the decrement button */
         .increment-decrement button:nth-child(1) {
@@ -127,8 +126,11 @@ Flight
                             <div class="col-sm-2 box_2_inner_3">
                                 <h4 class="text-center text-bold"><span>৳</span> <span
                                         id="totalPrice{{ $loop->index }}">{{ $flight->price }}</span></h4>
-                                <form class="myForm" action="your_action_url_here" method="POST">
+                                <form class="myForm" action="{{ route('payment') }}" method="POST">
+                                    @csrf
                                     <div class="increment-decrement text-center">
+                                        <input type="hidden" name="module_id" value="2">
+                                        <input type="hidden" name="package_id" value="{{ $flight->id }}">
                                         <button type="button" class="btn btn-danger" onclick="decrementValue(this)"
                                             data-price="{{ $flight->price }}" data-index="{{ $loop->index }}">-</button>
                                         <input type="number" name="number_of_member" class="number_of_member"
@@ -137,8 +139,13 @@ Flight
                                             data-price="{{ $flight->price }}" data-index="{{ $loop->index }}">+</button>
                                     </div>
                                     <p class="text-center">
-                                        <a href="#"
-                                            onclick="document.getElementsByClassName('myForm')[{{ $loop->index }}].submit();">Book</a>
+                                        @auth
+                                            <a href="#" onclick="submitForm({{ $loop->index }});">Book</a>
+                                        @endauth
+                                        @guest
+                                        <h4 style="color: red">To booked the package you must login first</h4>
+                                    @endguest
+
                                     </p>
                                 </form>
                             </div>
@@ -204,6 +211,20 @@ Flight
         function updateMemberCount(inputElement) {
             var memberCountElement = document.getElementById('memberCount');
             memberCountElement.innerText = inputElement.value;
+        }
+
+        // function submitForm() {
+        //     var memberCount = 0;
+        //     document.getElementById('memberCount').value = memberCount;
+        //     document.getElementById('number_of_member').removeAttribute('disabled');
+        //     document.getElementById('myForm').submit();
+        // }
+
+        function submitForm(index) {
+            var forms = document.getElementsByClassName('myForm');
+            var form = forms[index];
+            form.getElementsByClassName('number_of_member')[0].removeAttribute('disabled');
+            form.submit();
         }
     </script>
 @endpush

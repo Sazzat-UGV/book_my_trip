@@ -1,12 +1,11 @@
 @extends('frontend.layout.master')
 @section('title')
-Hotel Details
+    Hotel Details
 @endsection
 @push('user_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 @section('content')
     <section id="details">
@@ -66,10 +65,18 @@ Hotel Details
                             </div>
                             <div class="detail_package_right_1 text-center">
                                 <div class="d-flex justify-content-center pt-3">
-                                    <form id="myForm" action="your_action_url_here" method="POST">
+                                    <form id="myForm" action="{{ route('payment') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="module_id" value="3">
+                                        <input type="hidden" name="package_id" value="{{ $hotel->id }}">
                                         <h3><span>৳</span>{{ $hotel->room_price }}</h3>
                                         <div class="book_3 clearfix">
+                                            @auth
                                             <a href="#" onclick="document.getElementById('myForm').submit();">Book</a>
+                                            @endauth
+                                            @guest
+                                                <h4 style="color: red">To booked the package you must login first</h4>
+                                            @endguest
                                         </div>
                                     </form>
                                 </div>

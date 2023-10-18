@@ -21,6 +21,7 @@ use App\Http\Controllers\frontend\ForgetPasswordController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\HotelController as FrontendHotelController;
 use App\Http\Controllers\frontend\PackageController as FrontendPackageController;
+use App\Http\Controllers\frontend\PaymentController;
 use App\Http\Controllers\frontend\UserController as FrontendUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -75,12 +76,18 @@ Route::prefix('')->group(function () {
     Route::get('/get-to-data', [FrontendFlightController::class, 'getToData']);
 
     /*forget password route*/
-    Route::get('forget-password',[ForgetPasswordController::class,'forgetPasswordPage'])->name('forgetPasswordPage');
-    Route::post('forget-password',[ForgetPasswordController::class,'forgetPassword'])->name('forgetPassword');
+    Route::get('forget-password', [ForgetPasswordController::class, 'forgetPasswordPage'])->name('forgetPasswordPage');
+    Route::post('forget-password', [ForgetPasswordController::class, 'forgetPassword'])->name('forgetPassword');
 
     /*reset password*/
-    Route::get('reset-password/{token}',[ForgetPasswordController::class,'resetPasswordPage'])->name('resetPasswordPage');
-    Route::post('reset-password/{token}',[ForgetPasswordController::class,'resetPassword'])->name('resetPassword');
+    Route::get('reset-password/{token}', [ForgetPasswordController::class, 'resetPasswordPage'])->name('resetPasswordPage');
+    Route::post('reset-password/{token}', [ForgetPasswordController::class, 'resetPassword'])->name('resetPassword');
+
+    /*payment system route*/
+    Route::post('payment', [PaymentController::class, 'payment'])->name('payment');
+    Route::post('success', [PaymentController::class, 'success'])->name('success');
+    Route::post('fail', [PaymentController::class, 'fail'])->name('fail');
+    Route::get('cancel', [PaymentController::class, 'cancel'])->name('cancel');
 });
 
 
