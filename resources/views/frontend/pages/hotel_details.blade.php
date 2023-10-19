@@ -70,6 +70,7 @@
                                         <input type="hidden" name="module_id" value="3">
                                         <input type="hidden" name="package_id" value="{{ $hotel->id }}">
                                         <h3><span>৳</span>{{ $hotel->room_price }}</h3>
+                                        <input type="date" name="booking_date" class="form-control" required>
                                         <div class="book_3 clearfix">
                                             @auth
                                             <a href="#" onclick="document.getElementById('myForm').submit();">Book</a>

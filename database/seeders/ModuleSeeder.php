@@ -19,6 +19,7 @@ class ModuleSeeder extends Seeder
             'Sliders',
             'Contacts',
             'Users',
+            'Orders',
             'Categories',
             'Packages',
             'Flights',

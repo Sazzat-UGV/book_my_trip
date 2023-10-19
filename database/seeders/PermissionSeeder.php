@@ -73,6 +73,9 @@ class PermissionSeeder extends Seeder
             'Flight Edit',
             'Flight Delete',
         ];
+        $adminOrdersPermissionArray = [
+            'Order List',
+        ];
         $adminUsersPermissionArray = [
             'User List',
         ];
@@ -149,21 +152,15 @@ class PermissionSeeder extends Seeder
                 'permission_slug' => Str::slug($adminUsersPermissionArray[$i]),
             ]);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //Order
+        $adminOrdersModule = Module::where('module_name', 'Orders')->select('id')->first();
+        for ($i = 0; $i < count($adminOrdersPermissionArray); $i++) {
+            Permission::Create([
+                'module_id' => $adminOrdersModule->id,
+                'permission_name' => $adminOrdersPermissionArray[$i],
+                'permission_slug' => Str::slug($adminOrdersPermissionArray[$i]),
+            ]);
+        }
 
         //system roles
         $adminSystemRoleModule = Module::where('module_name', 'System Roles')->select('id')->first();

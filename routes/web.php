@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\FlightController;
 use App\Http\Controllers\backend\HoteLController;
 use App\Http\Controllers\backend\HotelController as BackendHotelController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\PackageController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SliderController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\frontend\FlightController as FrontendFlightController;
 use App\Http\Controllers\frontend\ForgetPasswordController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\HotelController as FrontendHotelController;
+use App\Http\Controllers\frontend\MyBookingController;
 use App\Http\Controllers\frontend\PackageController as FrontendPackageController;
 use App\Http\Controllers\frontend\PaymentController;
 use App\Http\Controllers\frontend\UserController as FrontendUserController;
@@ -88,6 +90,9 @@ Route::prefix('')->group(function () {
     Route::post('success', [PaymentController::class, 'success'])->name('success');
     Route::post('fail', [PaymentController::class, 'fail'])->name('fail');
     Route::get('cancel', [PaymentController::class, 'cancel'])->name('cancel');
+
+    /*booking route*/
+    Route::get('my-booking',[MyBookingController::class,'index'])->name('mybooking');
 });
 
 
@@ -134,4 +139,8 @@ Route::prefix('admin')->group(function () {
 
     /*System backup route*/
     Route::get('/backup/download/{file_name}', [BackupDatabaseController::class, 'download'])->name('admin.backupDownload');
+
+    /*Order route*/
+    Route::get('order',[OrderController::class,'index'])->name('admin.orderIndex');
+    Route::get('order-status/{id}',[OrderController::class,'orderStatus'])->name('admin.orderStatus');
 });

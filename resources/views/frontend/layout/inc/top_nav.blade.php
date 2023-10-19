@@ -183,6 +183,7 @@
                                     <span class="caret"></span></a>
                                 <ul id="profile-dropdown" class="dropdown-menu">
                                     <li><a href="{{ route('profilepage') }}">My Profile</a></li>
+                                    <li><a href="{{ route('mybooking') }}">My Booking</a></li>
                                     <li><a href="{{ route('changePassword') }}">Change Password</a></li>
                                     <li><a href="{{ route('logout') }}">Logout</a></li>
                                 </ul>

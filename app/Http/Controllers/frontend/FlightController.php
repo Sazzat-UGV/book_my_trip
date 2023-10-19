@@ -47,6 +47,7 @@ class FlightController extends Controller
         $flights = Flight::where('is_active', 1)
             ->where('from', $from)
             ->where('to', $to)
+            ->where('available_sit', '>=', 1)
             ->whereDate('flight_date', $flight_date)
             ->get();
 

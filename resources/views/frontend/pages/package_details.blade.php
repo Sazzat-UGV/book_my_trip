@@ -119,7 +119,11 @@
                                         </div>
                                         <div class="book_3 clearfix">
                                             @auth
-                                                <a href="#" onclick="submitForm()">Book</a>
+                                            @if (Auth::user()->phone && Auth::user()->address)
+                                            <a href="#" onclick="submitForm()">Book</a>
+                                            @else
+                                            <h4 style="color: red">Please add your phone number add address before book</h4>
+                                            @endif
                                             @endauth
                                             @guest
                                                 <h4 style="color: red">To booked the package you must login first</h4>

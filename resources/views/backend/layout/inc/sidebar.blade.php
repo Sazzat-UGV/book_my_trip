@@ -20,6 +20,7 @@
     @if (Auth::user()->haspermission('slider-list') ||
             Auth::user()->haspermission('contact-list') ||
             Auth::user()->haspermission('category-list') ||
+            Auth::user()->haspermission('order-list')||
             Auth::user()->haspermission('package-list')||
             Auth::user()->haspermission('flight-list'))
         <div class="sidebar-heading">
@@ -116,6 +117,14 @@
                 <a class="nav-link" href="{{ route('user.index') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Users</span></a>
+            </li>
+        @endcan
+
+        @can('order-list')
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.orderIndex') }}">
+                    <i class="fas fa-fw fa-th-list"></i>
+                    <span>Orders</span></a>
             </li>
         @endcan
 
