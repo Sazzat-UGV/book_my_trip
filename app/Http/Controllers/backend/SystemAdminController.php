@@ -21,7 +21,7 @@ class SystemAdminController extends Controller
     public function index()
     {
         Gate::authorize('admin-list');
-        $admins = User::with('role:id,role_name')->select('id', 'name', 'image', 'role_id', 'email', 'is_active', 'phone', 'address', 'created_at', 'is_deleteable')->latest('id')->get();
+        $admins = User::with('role:id,role_name')->whereNot('role_id',3)->select('id', 'name', 'image', 'role_id', 'email', 'is_active', 'phone', 'address', 'created_at', 'is_deleteable')->latest('id')->get();
         return view('backend.pages.system_admin.index', compact('admins'));
     }
 

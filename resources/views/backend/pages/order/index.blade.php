@@ -51,8 +51,12 @@
                                             <td class=".text-wrap"><span
                                                     style="border: 1px solid green; padding:0 8px; background: green; color: white;  border-radius: 20px">{{ $order->payment_status }}</span>
                                             </td>
-                                            <td class=".text-wrap">{{ date('d F Y', strtotime($order->booking_from)) }}</td>
 
+                                            <td class="">{{ date('d F Y', strtotime($order->booking_from)) }}
+                                                @if (isset($order->booking_to))
+                                                    <b>to</b> {{ date('d F Y', strtotime($order->booking_to)) }}
+                                                @endif
+                                            </td>
                                             <td class=".text-wrap">
                                                 <a href="{{ route('admin.orderStatus', ['id' => $order->id]) }}"
                                                     class="btn">
@@ -101,7 +105,10 @@
                                                             <p><span>Booking Item:
                                                                     {{ $order->booking_package_name }}</span></p>
                                                             <p><span>Booked For: {{ $order->member }}</span></p>
-                                                            <p><span>Booked Date: {{ $order->booking_from }}</span></p>
+                                                            <p><span>Booked Date: {{ $order->booking_from }} @if (isset($order->booking_to))
+                                                                        <b>to</b> {{ $order->booking_to }}
+                                                                    @endif
+                                                                </span></p>
                                                             <p><span>Booking Amount: {{ $order->amount }}
                                                                     {{ $order->currency }}</span></p>
                                                         </div>

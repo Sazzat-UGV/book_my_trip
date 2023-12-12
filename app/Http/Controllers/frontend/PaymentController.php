@@ -40,14 +40,15 @@ class PaymentController extends Controller
         }
         if ($request->module_id == 3) {
             $request->validate([
-                'booking_date' => "required|date"
+                'check_in' => "required|date",
+                'check_out' => "required|date"
             ]);
-            $module_id = 3;
+            $module_id = $request->check_out;
             $package_id = $request->package_id;
             $package = Hotel::where('id', $request->package_id)->first();
             $package_price = $package->room_price;
-            $number_of_member = $request->booking_date;
-            $total_price = $package_price;
+            $number_of_member = $request->check_in;
+            $total_price = $request->calculated_price;
         }
 
         $tran_id = "test" . rand(1111111, 9999999); //unique transection id for every transection
@@ -115,7 +116,6 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-
         $request_id = $request->mer_txnid;
 
         //verify the transection using Search Transection API
@@ -152,7 +152,7 @@ class PaymentController extends Controller
                 'phone' => $request->cus_phone,
                 'address' => $user->address,
                 'amount' => $request->amount,
-                'member' => $request->opt_d.' '. 'Person',
+                'member' => $request->opt_d . ' ' . 'Person',
                 'booking_package_name' => $package->package_name,
                 'booking_package_type' => 'Package',
                 'booking_from' => $package->starting_date,
@@ -182,7 +182,7 @@ class PaymentController extends Controller
                 'phone' => $request->cus_phone,
                 'address' => $user->address,
                 'amount' => $request->amount,
-                'member' => $request->opt_d.' '. 'Person',
+                'member' => $request->opt_d . ' ' . 'Person',
                 'booking_package_name' => $package->airlines_name,
                 'booking_package_type' => 'Flight',
                 'booking_from' => $package->flight_date,
@@ -196,8 +196,7 @@ class PaymentController extends Controller
             );
             Toastr::success('Flight booking has been successfully completed');
             return back();
-        }
-        if ($request->opt_c == 3) {
+        } else {
             $package = Hotel::where('id', $request->opt_b)->first();
             $order = Order::create([
                 'user_id' => $user->id,
@@ -211,6 +210,7 @@ class PaymentController extends Controller
                 'booking_package_name' => $package->hotel_name,
                 'booking_package_type' => 'Hotel',
                 'booking_from' => $request->opt_d,
+                'booking_to' => $request->opt_c,
                 'payment_status' => 'Paid',
                 'booking_status' => 'Pending',
                 'currency' => $request->currency,

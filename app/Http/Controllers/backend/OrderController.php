@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         Gate::authorize('order-list');
-        $orders = Order::select('id', 'name', 'email', 'phone', 'address', 'created_at', 'currency', 'booking_status', 'payment_status', 'booking_from', 'booking_package_type', 'booking_package_name', 'member', 'amount')->latest('id')->get();
+        $orders = Order::select('id', 'name', 'email', 'phone', 'address', 'created_at', 'currency', 'booking_status', 'payment_status', 'booking_from','booking_to', 'booking_package_type', 'booking_package_name', 'member', 'amount')->latest('id')->get();
         return view('backend.pages.order.index', compact('orders'));
     }
 

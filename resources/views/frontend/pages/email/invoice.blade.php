@@ -238,7 +238,9 @@
                             </td>
                             <td class="unit">{{ $orderPackageType }}</td>
                             <td class="qty">{{ $orderPackageMember }}</td>
-                            <td class="qty">{{ date('d F Y', strtotime($orderBookingFrom)) }}</td>
+                            <td class="qty">{{ date('d F Y', strtotime($orderBookingFrom)) }} @if (isset($orderBookingTo))
+                                - {{ date('d F Y', strtotime($orderBookingTo)) }}
+                            @endif</td>
                             <td class="total">৳ {{ $orderPrice }}</td>
                         </tr>
                     </tbody>

@@ -69,14 +69,28 @@
                                         @csrf
                                         <input type="hidden" name="module_id" value="3">
                                         <input type="hidden" name="package_id" value="{{ $hotel->id }}">
-                                        <h3><span>৳</span>{{ $hotel->room_price }}</h3>
-                                        <input type="date" name="booking_date" class="form-control" required>
+                                        <input type="hidden" name="calculated_price" id="calculatedPrice" value="{{ $hotel->room_price }}">
+                                        <h3><span id="displayedPrice">৳{{ $hotel->room_price }}</span></h3>
+                                        <div class="form-group mb-2">
+                                            <label for="" class="text-success">Check In</label>
+                                            <input type="date" name="check_in" class="form-control @error('check_in') is-invalid @enderror" onchange="updatePrice()">
+                                            @error('check_in')
+                                                <span><strong class="invalid-feedback" role="alert" style="color: red !important; font-size: 10px;">{{ $message }}</strong></span>
+                                            @enderror
+                                        </div>
+                                        <div class="from-group">
+                                            <label for="" class="text-success">Check Out</label>
+                                            <input type="date" name="check_out" class="form-control @error('check_out') is-invalid @enderror" onchange="updatePrice()">
+                                            @error('check_out')
+                                                <span><strong class="invalid-feedback" role="alert" style="color: red !important; font-size: 10px;">{{ $message }}</strong></span>
+                                            @enderror
+                                        </div>
                                         <div class="book_3 clearfix">
                                             @auth
-                                            <a href="#" onclick="document.getElementById('myForm').submit();">Book</a>
+                                                <a href="#" onclick="updatePrice(); document.getElementById('myForm').submit();">Book</a>
                                             @endauth
                                             @guest
-                                                <h4 style="color: red">To booked the package you must login first</h4>
+                                                <h4 style="color: red">To book the package, you must log in first</h4>
                                             @endguest
                                         </div>
                                     </form>
@@ -96,4 +110,15 @@
     </section>
 @endsection
 @push('user_script')
+<script>
+    function updatePrice() {
+        var checkInDate = new Date(document.getElementsByName('check_in')[0].value);
+        var checkOutDate = new Date(document.getElementsByName('check_out')[0].value);
+        var priceDifference = (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24);
+        var basePrice = {{ $hotel->room_price }};
+        var totalPrice = basePrice * priceDifference;
+        document.getElementById('displayedPrice').innerText = '৳' + totalPrice.toFixed(2);
+        document.getElementById('calculatedPrice').value = totalPrice.toFixed(2);
+    }
+</script>
 @endpush

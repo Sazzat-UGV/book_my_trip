@@ -57,7 +57,8 @@
                                         <td class=".text-wrap"><span
                                                 style="border: 1px solid green; padding:0 8px; background: green; color: white;  border-radius: 20px">{{ $order->payment_status }}</span>
                                         </td>
-                                        <td class=".text-wrap">{{ date('d F Y', strtotime($order->booking_from)) }}</td>
+                                        <td class=".text-wrap">{{ date('d F Y', strtotime($order->booking_from)) }}@if (isset($order->booking_to))
+                                            - {{ date('d F Y', strtotime($order->booking_to)) }} @endif</td>
 
                                         <td class=".text-wrap">
                                             @if ($order->booking_status == 'Pending')

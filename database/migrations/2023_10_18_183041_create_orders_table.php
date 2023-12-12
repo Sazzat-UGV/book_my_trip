@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('booking_package_name')->nullable();
             $table->string('booking_package_type')->nullable();
             $table->date('booking_from')->nullable();
+            $table->date('booking_to')->nullable();
             $table->string('payment_status');
             $table->string('booking_status');
             $table->string('currency');

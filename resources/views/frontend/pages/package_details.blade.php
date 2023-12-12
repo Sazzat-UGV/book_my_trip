@@ -101,6 +101,8 @@
                                 </h5>
                             </div>
                             <div class="detail_package_right_1 text-center">
+                                <marquee behavior="" direction=""><span style="color: red">Only age less than 10 are
+                                        free</span></marquee>
                                 <h3><span>৳</span> <span id="totalPrice">{{ $package->package_price }}</span></h3>
                                 <!-- Display the number of members -->
                                 <div class="number-of-members">for <span id="memberCount">1 </span> person </div>
@@ -119,11 +121,12 @@
                                         </div>
                                         <div class="book_3 clearfix">
                                             @auth
-                                            @if (Auth::user()->phone && Auth::user()->address)
-                                            <a href="#" onclick="submitForm()">Book</a>
-                                            @else
-                                            <h4 style="color: red">Please add your phone number add address before book</h4>
-                                            @endif
+                                                @if (Auth::user()->phone && Auth::user()->address)
+                                                    <a href="#" onclick="submitForm()">Book</a>
+                                                @else
+                                                    <h4 style="color: red">Please add your phone number add address before book
+                                                    </h4>
+                                                @endif
                                             @endauth
                                             @guest
                                                 <h4 style="color: red">To booked the package you must login first</h4>
