@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
+
     public function loginPage()
     {
         return view('backend.pages.auth.login');

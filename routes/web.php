@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::prefix('')->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
     /*contact routs*/
@@ -144,3 +145,4 @@ Route::prefix('admin')->group(function () {
     Route::get('order',[OrderController::class,'index'])->name('admin.orderIndex');
     Route::get('order-status/{id}',[OrderController::class,'orderStatus'])->name('admin.orderStatus');
 });
+
