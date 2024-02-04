@@ -127,7 +127,7 @@ Package
                                                         <h2 class="text-right">৳ {{ $cpackage->package_price }}</h2>
                                                         <h5 class="text-right">One person / One Thing</h5>
                                                         <h4 class="text-right">
-                                                            <a href="{{ route('detail', ['id' => $package->id]) }}"><i
+                                                            <a href="{{ route('detail', ['id' => $cpackage->id]) }}"><i
                                                                     class="fa fa-info-circle"></i>View
                                                                 Details</a>
 
